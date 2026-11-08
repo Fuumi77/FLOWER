@@ -351,6 +351,67 @@
     .flower-pop {
       animation: popBounce 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+
+    /* Re-bloom state when a single flower is tapped again after cooldown */
+    body.is-awakened .flower-head.is-reblooming .petal-center {
+      transform: scale(0.38, 0.74) translateY(6px) !important;
+      transition: transform 0.35s ease-in 0s !important;
+    }
+    body.is-awakened .flower-head.is-reblooming .petal-mid-left {
+      transform: rotate(30deg) scale(0.38, 0.7) !important;
+      opacity: 0.4 !important;
+      transition: transform 0.35s ease-in 0s, opacity 0.35s ease-in 0s !important;
+    }
+    body.is-awakened .flower-head.is-reblooming .petal-mid-right {
+      transform: rotate(-30deg) scale(0.38, 0.7) !important;
+      opacity: 0.4 !important;
+      transition: transform 0.35s ease-in 0s, opacity 0.35s ease-in 0s !important;
+    }
+    body.is-awakened .flower-head.is-reblooming .petal-wide-left {
+      transform: rotate(48deg) scale(0.42, 0.74) !important;
+      transition: transform 0.35s ease-in 0s !important;
+    }
+    body.is-awakened .flower-head.is-reblooming .petal-wide-right {
+      transform: rotate(-48deg) scale(0.42, 0.74) !important;
+      transition: transform 0.35s ease-in 0s !important;
+    }
+    body.is-awakened .flower-head.is-reblooming .petal-lower-cup {
+      transform: scale(0.35, 0.55) !important;
+      opacity: 0.3 !important;
+      transition: transform 0.35s ease-in 0s, opacity 0.35s ease-in 0s !important;
+    }
+    body.is-awakened .flower-head.is-reblooming .flower-core,
+    body.is-awakened .flower-head.is-reblooming .flower-aura {
+      transform: scale(0.15) !important;
+      opacity: 0 !important;
+      transition: transform 0.3s ease-in 0s, opacity 0.3s ease-in 0s !important;
+    }
+
+    /* Instant bloom override after first garden awakening so re-blooms don't wait 2s */
+    body.garden-ready .petal-center,
+    body.garden-ready .petal-mid-left,
+    body.garden-ready .petal-mid-right,
+    body.garden-ready .petal-wide-left,
+    body.garden-ready .petal-wide-right,
+    body.garden-ready .petal-lower-cup,
+    body.garden-ready .flower-core,
+    body.garden-ready .flower-aura {
+      --bloom-delay: 0s !important;
+    }
+
+    /* Cute Polaroid Photo Frame inside Letter */
+    .polaroid-card {
+      background: #ffffff;
+      padding: 8px 8px 22px 8px;
+      box-shadow: 0 8px 22px rgba(216, 27, 96, 0.18), 0 2px 6px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(244, 143, 177, 0.45);
+      transform: rotate(-2deg);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    }
+    .polaroid-card:hover {
+      transform: rotate(0deg) scale(1.04);
+      box-shadow: 0 12px 28px rgba(216, 27, 96, 0.28);
+    }
     @keyframes popBounce {
       0% { transform: scale(1); }
       40% { transform: scale(1.18) rotate(4deg); }
@@ -1033,6 +1094,32 @@
           </p>
         </div>
 
+        <!-- =============================================================== -->
+        <!-- 📸 4. MODIFIABLE LITTLE PHOTO AT THE BOTTOM OF THE LETTER 📸    -->
+        <!-- Change src="our-photo.jpg" to your own photo filename or URL!   -->
+        <!-- =============================================================== -->
+        <div class="pt-2 pb-4 flex flex-col items-center justify-center">
+          <div onclick="openPhotoLightbox()"
+            class="polaroid-card rounded-xl cursor-pointer group relative max-w-[180px] sm:max-w-[200px]">
+            <!-- Cute Washi Tape at top of Polaroid -->
+            <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-pink-200/80 border border-pink-300/60 rounded-sm rotate-2 shadow-sm"></div>
+
+            <!-- ✏️ CHANGE YOUR PHOTO LINK/FILENAME IN src="..." BELOW -->
+            <img id="letterMiniPhoto"
+              src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80"
+              alt="Our Favorite Memory"
+              class="w-full h-32 sm:h-36 object-cover rounded-lg border border-pink-100" />
+
+            <!-- ✏️ CHANGE YOUR POLAROID CAPTION BELOW -->
+            <p id="letterPhotoCaption" class="font-script text-center text-rose-700 text-lg font-bold mt-2 leading-none">
+              Us Always & Forever 💕
+            </p>
+            <span class="block text-center text-[10px] text-rose-400 font-semibold mt-1 group-hover:text-pink-600 transition">
+              🔍 Tap photo to view bigger
+            </span>
+          </div>
+        </div>
+
       </div>
       <!-- ================================================================= -->
       <!-- ✏️ END OF LOVE LETTER WORDS                                       -->
@@ -1045,6 +1132,31 @@
           class="px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold shadow hover:opacity-95 active:scale-95 transition">
           Keep Holding My Heart 💕
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 🖼️ FULL-SCREEN PHOTO LIGHTBOX MODAL (OPENS WHEN PHOTO IS TAPPED) 🖼️  -->
+  <!-- ===================================================================== -->
+  <div id="photoLightboxModal"
+    class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/85 backdrop-blur-md p-4 opacity-0 transition-opacity duration-300"
+    onclick="closePhotoLightbox()">
+
+    <div class="relative max-w-2xl w-full flex flex-col items-center transform scale-95 transition-transform duration-300"
+      id="photoLightboxCard" onclick="event.stopPropagation()">
+
+      <!-- Close Lightbox Button -->
+      <button onclick="closePhotoLightbox()" aria-label="Close Full Photo"
+        class=" -top-3 -right-2 sm:-top-4 sm:-right-4 absolute z-10 w-9 h-9 rounded-full bg-rose-500 hover:bg-rose-600 text-white flex items-center justify-center font-bold text-base shadow-lg border-2 border-white transition">
+        ✕
+      </button>
+
+      <!-- Enlarged Polaroid Frame -->
+      <div class="bg-white p-3 sm:p-4 pb-6 sm:pb-8 rounded-2xl shadow-[0_25px_70px_rgba(255,122,168,0.45)] border-2 border-pink-200 max-h-[85dvh] flex flex-col items-center">
+        <img id="lightboxFullImg" src="" alt="Our Memory Full View"
+          class="max-h-[68dvh] w-auto max-w-full object-contain rounded-xl border border-pink-100" />
+        <p id="lightboxFullCaption" class="font-script text-2xl sm:text-3xl text-rose-700 font-bold mt-3 text-center"></p>
       </div>
     </div>
   </div>
@@ -1245,10 +1357,15 @@
         startCyclingRingHearts();
       }, 1800);
 
-      // Spawn a celebration burst of floating hearts as the flowers finish blooming
+      // Spawn a celebration burst of floating hearts & unlock instant re-blooming
       setTimeout(() => {
         spawnHeartBurst(window.innerWidth * 0.5, window.innerHeight * 0.38, 20);
       }, 2000);
+
+      // Unlock zero-delay petal transitions after initial bloom completes (3.8s)
+      setTimeout(() => {
+        document.body.classList.add('garden-ready');
+      }, 3800);
     }
 
     /* --------------------------------------------------------------------- */
@@ -1477,8 +1594,10 @@
     }
 
     /* --------------------------------------------------------------------- */
-    /* 3. INTERACTIVE FLOWER TAPS (Bounces in-place without jumping to 0,0!) */
+    /* 3. INTERACTIVE FLOWER RE-BLOOM & BOUNCE (Tappable again after 3s!)    */
     /* --------------------------------------------------------------------- */
+    const FLOWER_REBLOOM_COOLDOWN_MS = 3000; // 3 seconds cooldown before same flower can re-bloom
+
     function popSingleFlower(flowerEl, event) {
       if (event) event.stopPropagation();
       if (!gardenAwakened) {
@@ -1486,7 +1605,12 @@
         return;
       }
 
-      // Animate ONLY the inner .flower-pop-wrap so SVG translate(x,y) is never lost!
+      const rect = flowerEl.getBoundingClientRect();
+      const x = event && event.clientX ? event.clientX : rect.left + rect.width / 2;
+      const y = event && event.clientY ? event.clientY : rect.top + rect.height / 2;
+      spawnHeartBurst(x, y, 14);
+
+      // Bounce the inner wrapper
       const popWrap = flowerEl.querySelector('.flower-pop-wrap');
       if (popWrap) {
         popWrap.classList.remove('flower-pop');
@@ -1494,10 +1618,64 @@
         popWrap.classList.add('flower-pop');
       }
 
-      const rect = flowerEl.getBoundingClientRect();
-      const x = event && event.clientX ? event.clientX : rect.left + rect.width / 2;
-      const y = event && event.clientY ? event.clientY : rect.top + rect.height / 2;
-      spawnHeartBurst(x, y, 12);
+      // Check if this flower is ready to fold & bloom wide again!
+      if (document.body.classList.contains('garden-ready') && !flowerEl.dataset.coolingDown) {
+        flowerEl.dataset.coolingDown = 'true';
+        flowerEl.classList.add('is-reblooming');
+
+        // Fold into a bud for 360ms, then bloom wide open again!
+        setTimeout(() => {
+          flowerEl.classList.remove('is-reblooming');
+        }, 360);
+
+        // Allow tapping this flower to re-bloom again after cooldown (3 seconds)
+        setTimeout(() => {
+          delete flowerEl.dataset.coolingDown;
+        }, FLOWER_REBLOOM_COOLDOWN_MS);
+      }
+    }
+
+    /* --------------------------------------------------------------------- */
+    /* 3B. FULL-SCREEN PHOTO LIGHTBOX OPEN / CLOSE                           */
+    /* --------------------------------------------------------------------- */
+    function openPhotoLightbox() {
+      const miniImg = document.getElementById('letterMiniPhoto');
+      const miniCap = document.getElementById('letterPhotoCaption');
+      const fullImg = document.getElementById('lightboxFullImg');
+      const fullCap = document.getElementById('lightboxFullCaption');
+      const modal = document.getElementById('photoLightboxModal');
+      const card = document.getElementById('photoLightboxCard');
+
+      if (!miniImg || !modal || !card) return;
+      fullImg.src = miniImg.src;
+      fullCap.textContent = miniCap ? miniCap.textContent : '';
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      requestAnimationFrame(() => {
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+        card.classList.remove('scale-95');
+        card.classList.add('scale-100');
+      });
+
+      spawnHeartBurst(window.innerWidth * 0.5, window.innerHeight * 0.5, 16);
+    }
+
+    function closePhotoLightbox() {
+      const modal = document.getElementById('photoLightboxModal');
+      const card = document.getElementById('photoLightboxCard');
+      if (!modal || !card) return;
+
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      card.classList.remove('scale-100');
+      card.classList.add('scale-95');
+
+      setTimeout(() => {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }, 300);
     }
 
     function handleBouquetTap(event) {
