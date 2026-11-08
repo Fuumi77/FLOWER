@@ -536,7 +536,7 @@
       <!-- INTERACTIVE FLOWER BOUQUET SVG (10 Wide-Blooming Flowers+Grass) -->
       <!-- =============================================================== -->
       <div id="bouquetWrapper" onclick="handleBouquetTap(event)"
-        class="relative w-full max-w-[95vw] sm:max-w-[640px] md:max-w-[700px] h-full max-h-[52dvh] sm:max-h-[58dvh] flex items-end justify-center cursor-pointer">
+        class="relative w-full max-w-[98vw] sm:max-w-[680px] md:max-w-[740px] h-full max-h-[58dvh] sm:max-h-[64dvh] flex items-end justify-center cursor-pointer scale-105 sm:scale-100">
 
         <svg id="bouquetSvg" viewBox="0 0 900 700" preserveAspectRatio="xMidYMax meet" class="w-full h-full overflow-visible drop-shadow-[0_12px_30px_rgba(0,0,0,0.8)]" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -925,30 +925,30 @@
       <!-- Features sign, dashed arrow, top-left heart badge & peeking card-->
       <!-- =============================================================== -->
       <div id="letterWidget"
-        class="ambient-reveal absolute right-2 sm:right-6 md:right-10 bottom-1 sm:bottom-4 md:bottom-8 z-30 flex flex-col items-center pointer-events-auto"
+        class="ambient-reveal absolute right-1 sm:right-6 md:right-10 bottom-1 sm:bottom-4 md:bottom-8 z-30 flex flex-col items-center pointer-events-auto scale-75 sm:scale-100 origin-bottom-right"
         style="--reveal-delay: 2.7s;">
 
         <!-- Cute Hanging Pastel Sign Highlight -->
-        <div class="sign-widget relative mb-0.5 bg-gradient-to-br from-pink-500/95 via-rose-500/95 to-pink-600/95 text-white px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-2xl shadow-[0_0_25px_rgba(255,122,168,0.65)] border-2 border-pink-200/80 text-center max-w-[132px] sm:max-w-[175px]">
-          <div class="text-[9px] sm:text-xs font-bold uppercase tracking-wider text-pink-100 flex items-center justify-center gap-1">
+        <div class="sign-widget relative mb-0.5 bg-gradient-to-br from-pink-500/95 via-rose-500/95 to-pink-600/95 text-white px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-2xl shadow-[0_0_25px_rgba(255,122,168,0.65)] border-2 border-pink-200/80 text-center max-w-[120px] sm:max-w-[175px]">
+          <div class="text-[8px] sm:text-xs font-bold uppercase tracking-wider text-pink-100 flex items-center justify-center gap-1">
             <span>✨ For My Love ✨</span>
           </div>
-          <div class="text-[11px] sm:text-sm font-bold leading-tight mt-0.5">
-            Tap to Open Your Letter! 💌
+          <div class="text-[10px] sm:text-sm font-bold leading-tight mt-0.5">
+            Tap to Open! 💌
           </div>
         </div>
 
         <!-- Cute Dashed Pink Arrow Pointing Down to the Peeking Letter -->
-        <div class="arrow-bounce my-0.5 text-pink-300 drop-shadow-[0_0_10px_rgba(255,182,205,0.9)]">
-          <svg class="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 60 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="arrow-bounce my-0 text-pink-300 drop-shadow-[0_0_10px_rgba(255,182,205,0.9)]">
+          <svg class="w-6 h-6 sm:w-10 sm:h-10" viewBox="0 0 60 55" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M 16,6 C 24,18 30,28 36,40" stroke="#f48fb1" stroke-width="4" stroke-linecap="round" stroke-dasharray="5 6" />
             <path d="M 23,39 L 38,43 L 38,27" stroke="#f48fb1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
 
-        <!-- Redesigned Interactive Envelope Button (Exact match to reference image!) -->
+        <!-- Redesigned Interactive Envelope Button -->
         <button id="envelopeBtn" onclick="triggerEnvelopeOpen()" aria-label="Open 10th Monthsary Love Letter"
-          class="envelope-btn envelope-float-wrap group relative w-28 h-24 sm:w-36 sm:h-28 flex items-center justify-center cursor-pointer focus:outline-none">
+          class="envelope-btn envelope-float-wrap group relative w-24 h-20 sm:w-36 sm:h-28 flex items-center justify-center cursor-pointer focus:outline-none">
 
           <svg viewBox="0 0 160 130" class="w-full h-full overflow-visible drop-shadow-[0_10px_25px_rgba(244,143,177,0.45)]">
             <!-- 1. Back Envelope Pocket Interior -->
