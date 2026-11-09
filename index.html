@@ -666,21 +666,27 @@
           </g>
 
           <!-- ========================================================= -->
-          <!-- LAYER 3: DENSE TALL SWAYING GRASS CLUSTERS (28+ Blades!)  -->
+          <!-- LAYER 3: DENSE TALL SWAYING GRASS CLUSTERS (NOW WIDER!)   -->
           <!-- ========================================================= -->
 
           <!-- Far-Left & Mid-Left Tall Grass Cluster -->
           <g class="grass-grow" style="--grow-delay: 0.2s;">
             <g class="sway-slow-left">
-              <path d="M 190,675 C 172,530 155,390 125,275 C 145,400 162,535 178,675 Z" fill="url(#grassDarkGrad)" opacity="0.8" />
-              <path d="M 275,675 C 268,510 278,365 312,240 C 268,360 255,510 262,675 Z" fill="url(#grassMidGrad)" opacity="0.85" />
-              <path d="M 252,675 C 235,500 230,315 256,140 C 218,310 218,500 238,675 Z" fill="url(#grassBrightGrad)" />
-              <path d="M 242,675 C 225,525 204,370 180,245 C 194,385 210,530 228,675 Z" fill="url(#grassBrightGrad)" />
-              <path d="M 262,675 C 258,520 276,385 322,275 C 268,380 246,515 248,675 Z" fill="url(#grassBrightGrad)" />
-              <path d="M 225,675 C 208,560 185,465 156,390 C 176,475 196,565 212,675 Z" fill="url(#grassBrightGrad)" />
-              <path d="M 210,675 C 190,585 162,510 128,455 C 154,520 178,590 198,675 Z" fill="url(#grassMidGrad)" />
-              <path d="M 288,675 C 274,565 278,475 308,405 C 270,475 262,565 274,675 Z" fill="url(#grassBrightGrad)" />
-              <path d="M 310,675 C 296,580 304,500 335,440 C 296,500 284,580 298,675 Z" fill="url(#grassMidGrad)" />
+              <!-- NEW: Extreme Far-Left Blades (Opens up the left side) -->
+              <path d="M 120,675 C 90,540 60,400 35,280 C 70,410 100,550 110,675 Z" fill="url(#grassDarkGrad)" opacity="0.75" />
+              <path d="M 145,675 C 115,510 85,360 55,230 C 95,370 125,520 135,675 Z" fill="url(#grassMidGrad)" opacity="0.85" />
+              <path d="M 90,675 C 65,580 40,490 20,400 C 50,495 75,590 80,675 Z" fill="url(#grassBrightGrad)" opacity="0.8" />
+              
+              <!-- Original Left Grass (Slightly spread out) -->
+              <path d="M 190,675 C 160,530 135,390 105,275 C 140,400 165,535 178,675 Z" fill="url(#grassDarkGrad)" opacity="0.8" />
+              <path d="M 275,675 C 258,510 248,365 282,240 C 248,360 255,510 262,675 Z" fill="url(#grassMidGrad)" opacity="0.85" />
+              <path d="M 252,675 C 225,500 210,315 226,140 C 208,310 218,500 238,675 Z" fill="url(#grassBrightGrad)" />
+              <path d="M 242,675 C 215,525 184,370 150,245 C 174,385 200,530 228,675 Z" fill="url(#grassBrightGrad)" />
+              <path d="M 262,675 C 248,520 256,385 302,275 C 258,380 246,515 248,675 Z" fill="url(#grassBrightGrad)" />
+              <path d="M 225,675 C 198,560 165,465 136,390 C 166,475 186,565 212,675 Z" fill="url(#grassBrightGrad)" />
+              <path d="M 210,675 C 180,585 142,510 108,455 C 144,520 168,590 198,675 Z" fill="url(#grassMidGrad)" />
+              <path d="M 288,675 C 264,565 258,475 288,405 C 260,475 262,565 274,675 Z" fill="url(#grassBrightGrad)" />
+              <path d="M 310,675 C 286,580 284,500 315,440 C 286,500 284,580 298,675 Z" fill="url(#grassMidGrad)" />
             </g>
           </g>
 
@@ -697,45 +703,65 @@
           <!-- Right & Far-Right Tall Grass Cluster -->
           <g class="grass-grow" style="--grow-delay: 0.28s;">
             <g class="sway-slow-right">
-              <path d="M 615,665 C 624,540 636,425 632,315 C 616,425 608,540 602,665 Z" fill="url(#grassDarkGrad)" opacity="0.8" />
-              <path d="M 602,665 C 590,555 568,465 538,395 C 562,475 580,560 590,665 Z" fill="url(#grassDarkGrad)" opacity="0.75" />
-              <path d="M 655,675 C 668,510 682,355 665,205 C 670,360 654,515 642,675 Z" fill="url(#grassBrightGrad)" />
-              <path d="M 646,675 C 648,545 658,435 668,340 C 648,435 636,545 634,675 Z" fill="url(#grassBrightGrad)" />
-              <path d="M 638,675 C 624,565 608,485 582,420 C 600,495 614,570 626,675 Z" fill="url(#grassBrightGrad)" />
-              <path d="M 662,675 C 676,575 696,500 726,435 C 690,498 668,575 650,675 Z" fill="url(#grassBrightGrad)" />
-              <path d="M 678,675 C 695,595 720,535 752,485 C 714,538 690,598 668,675 Z" fill="url(#grassMidGrad)" />
-              <path d="M 588,675 C 598,585 612,510 638,448 C 606,512 588,585 576,675 Z" fill="url(#grassMidGrad)" />
+              <!-- NEW: Extreme Far-Right Blades (Opens up the right side) -->
+              <path d="M 780,675 C 810,540 840,400 865,280 C 830,410 800,550 790,675 Z" fill="url(#grassDarkGrad)" opacity="0.75" />
+              <path d="M 755,675 C 785,510 815,360 845,230 C 805,370 775,520 765,675 Z" fill="url(#grassMidGrad)" opacity="0.85" />
+              <path d="M 810,675 C 835,580 860,490 880,400 C 850,495 825,590 820,675 Z" fill="url(#grassBrightGrad)" opacity="0.8" />
+
+              <!-- Original Right Grass (Slightly spread out) -->
+              <path d="M 615,665 C 634,540 656,425 662,315 C 636,425 618,540 602,665 Z" fill="url(#grassDarkGrad)" opacity="0.8" />
+              <path d="M 602,665 C 610,555 608,465 588,395 C 592,475 600,560 590,665 Z" fill="url(#grassDarkGrad)" opacity="0.75" />
+              <path d="M 655,675 C 688,510 712,355 705,205 C 690,360 674,515 642,675 Z" fill="url(#grassBrightGrad)" />
+              <path d="M 646,675 C 668,545 688,435 708,340 C 678,435 656,545 634,675 Z" fill="url(#grassBrightGrad)" />
+              <path d="M 638,675 C 654,565 658,485 642,420 C 640,495 644,570 626,675 Z" fill="url(#grassBrightGrad)" />
+              <path d="M 662,675 C 696,575 726,500 766,435 C 720,498 688,575 650,675 Z" fill="url(#grassBrightGrad)" />
+              <path d="M 678,675 C 715,595 750,535 792,485 C 744,538 710,598 668,675 Z" fill="url(#grassMidGrad)" />
+              <path d="M 588,675 C 618,585 642,510 678,448 C 636,512 608,585 576,675 Z" fill="url(#grassMidGrad)" />
             </g>
           </g>
 
           <!-- ========================================================= -->
-          <!-- LAYER 3B: NEW MAGICAL VINES, CURLS & GLOWING SEED STALKS  -->
+          <!-- LAYER 3B: MAGICAL VINES, CURLS & GLOWING SEED STALKS      -->
           <!-- ========================================================= -->
           <g class="grass-grow" style="--grow-delay: 0.4s;">
             <!-- Left Side Magical Tendrils & Seeds -->
             <g class="sway-slow-left">
+              <!-- Extreme Far-Left Curly Vine (NEW) -->
+              <path d="M 110,675 C 80,550 10,480 50,380 C 70,330 110,370 80,410" fill="none" stroke="url(#grassBrightGrad)" stroke-width="3" stroke-linecap="round" />
               <!-- Curly Vine -->
-              <path d="M 230,675 C 230,550 160,480 200,380 C 220,330 260,370 230,410" fill="none" stroke="url(#grassBrightGrad)" stroke-width="3.5" stroke-linecap="round" />
+              <path d="M 230,675 C 230,550 160,480 200,380 C 220,330 260,370 230,410" fill="none" stroke="url(#grassMidGrad)" stroke-width="3.5" stroke-linecap="round" />
               <!-- Seed Stalk with Glowing Spores -->
-              <path d="M 285,675 Q 310,550 255,420" fill="none" stroke="url(#grassMidGrad)" stroke-width="2.5" />
+              <path d="M 285,675 Q 310,550 255,420" fill="none" stroke="url(#grassDarkGrad)" stroke-width="2.5" />
               <circle cx="255" cy="420" r="3.5" fill="#ffe07d" opacity="0.85" />
               <circle cx="247" cy="432" r="2" fill="#ffe07d" opacity="0.65" />
               <circle cx="265" cy="428" r="2.5" fill="#f6a6c1" opacity="0.8" />
-              <!-- Wide Wavy Blade -->
+              <!-- NEW Far-Left Seed Stalk -->
+              <path d="M 155,675 Q 130,530 85,390" fill="none" stroke="url(#grassMidGrad)" stroke-width="2" />
+              <circle cx="85" cy="390" r="3" fill="#ff7aa8" opacity="0.8" />
+              <circle cx="76" cy="400" r="1.5" fill="#ffe07d" opacity="0.9" />
+              <!-- Wide Wavy Blades -->
               <path d="M 170,675 C 130,550 200,450 160,320 C 185,450 145,550 185,675 Z" fill="url(#grassMidGrad)" opacity="0.75" />
+              <path d="M 90,675 C 50,560 120,470 80,350 C 105,470 65,560 105,675 Z" fill="url(#grassDarkGrad)" opacity="0.65" />
             </g>
 
             <!-- Right Side Magical Tendrils & Seeds -->
             <g class="sway-slow-right">
+              <!-- Extreme Far-Right Curly Vine (NEW) -->
+              <path d="M 790,675 C 820,540 890,470 850,370 C 820,310 780,360 820,400" fill="none" stroke="url(#grassBrightGrad)" stroke-width="3" stroke-linecap="round" />
               <!-- Curly Vine -->
-              <path d="M 620,675 C 610,540 680,470 630,370 C 600,310 560,360 600,400" fill="none" stroke="url(#grassBrightGrad)" stroke-width="3.5" stroke-linecap="round" />
+              <path d="M 620,675 C 610,540 680,470 630,370 C 600,310 560,360 600,400" fill="none" stroke="url(#grassMidGrad)" stroke-width="3.5" stroke-linecap="round" />
               <!-- Seed Stalk with Glowing Spores -->
               <path d="M 580,675 Q 550,560 615,440" fill="none" stroke="url(#grassDarkGrad)" stroke-width="2.5" />
               <circle cx="615" cy="440" r="4" fill="#ffe07d" opacity="0.85" />
               <circle cx="604" cy="452" r="2.5" fill="#f6a6c1" opacity="0.8" />
               <circle cx="627" cy="448" r="2" fill="#ffe07d" opacity="0.65" />
-              <!-- Wide Wavy Blade -->
+              <!-- NEW Far-Right Seed Stalk -->
+              <path d="M 745,675 Q 770,530 815,390" fill="none" stroke="url(#grassMidGrad)" stroke-width="2" />
+              <circle cx="815" cy="390" r="3" fill="#ff7aa8" opacity="0.8" />
+              <circle cx="824" cy="400" r="1.5" fill="#ffe07d" opacity="0.9" />
+              <!-- Wide Wavy Blades -->
               <path d="M 680,675 C 720,560 650,460 700,340 C 670,460 705,560 665,675 Z" fill="url(#grassMidGrad)" opacity="0.75" />
+              <path d="M 810,675 C 850,560 780,470 820,350 C 790,470 830,560 790,675 Z" fill="url(#grassDarkGrad)" opacity="0.65" />
             </g>
           </g>
 
